@@ -1,3 +1,4 @@
+import { toBoolean } from "./common/huemul/huemul-functions";
 import { IHuemulAppVersion } from "./common/huemul/interfaces/interface-huemul-appversion-v1";
 
 export enum HuemulEnvironmentType {
@@ -26,6 +27,7 @@ export enum CloudProviderType {
 
 export const emailFromNotify = process.env.emailFromNotify ?? ""; 
 export const emailToNotify = process.env.emailToNotify ?? ""; 
+export const enviarCorreo = toBoolean(process.env.enviarCorreo) ?? false;
 export const emailProvider = process.env.emailProvider; 
 
 

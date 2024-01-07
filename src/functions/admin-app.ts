@@ -1,5 +1,5 @@
 import { app, HttpRequest, HttpResponseInit, InvocationContext, Timer } from "@azure/functions";
-import { appName, appVersion, businessName, emailToNotify as emailFromNotify, emailToNotify } from "../global";
+import { appName, appVersion, businessName, emailToNotify as emailFromNotify, emailToNotify, enviarCorreo } from "../global";
 import { getDateTimeText } from "../common/huemul/huemul-functions";
 import { getDepartmentData } from "../app/department/department-logic";
 import { sendMail } from "../common/connections/connection-mail";
@@ -22,23 +22,17 @@ app.timer('EnvioCorreo', {
           isOK: false,
           detail: "",
       }
-  
-      //const enter = "\r\n";
-      const to: string = emailToNotify;
-      const subject = `Envío de correo de prueba ${timeStamp}`;
-      
-      var message: string = "Demo de envío de correo";
-      
-      //const message: string = "Hola, " + enter + "te han enviado un mensaje por el sitio web: " + enter + `Nombre: ${data.contactName}`+ enter + `Email: ${data.contactEmail}` + enter + `Mensaje: ${data.contactMessage}` + "Un saludo. Cami de Simplera!";
-  
-      resultFunc = await sendMail(emailFromNotify, to, subject, message);
-      if (!resultFunc.isOK) {
-        console.log(`ERROR ENVIO EMAIL: ${resultFunc.detail}`);
-        //data.contactStatus = "ERROR MAIL";
-        //data.contactInternalComment = `can't send email: ${JSON.stringify(result.detail)}`;
-      }
 
-        //await internalTaskToRun();
+      if (enviarCorreo) {
+        const to: string = emailToNotify;
+        const subject = `Envío de correo de prueba ${timeStamp}`;
+        var message: string = "Demo de envío de correo";
+            
+        resultFunc = await sendMail(emailFromNotify, to, subject, message);
+        if (!resultFunc.isOK) {
+          console.log(`ERROR ENVIO EMAIL: ${resultFunc.detail}`);
+        }
+      }
     }
 });
 
