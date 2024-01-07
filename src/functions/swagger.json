@@ -1,0 +1,38 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API de Ejemplo",
+      "version": "1.0.0",
+      "description": "Una API de ejemplo con Swagger"
+    },
+    "paths": {
+      "/users": {
+        "get": {
+          "summary": "Obtener una lista de usuarios",
+          "description": "Devuelve una lista de usuarios.",
+          "responses": {
+            "200": {
+              "description": "Éxito",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "users": [
+                      {
+                        "id": 1,
+                        "name": "Usuario 1"
+                      },
+                      {
+                        "id": 2,
+                        "name": "Usuario 2"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

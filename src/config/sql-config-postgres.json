@@ -1,0 +1,17 @@
+{ 
+  "acquireConnectionTimeout": 1000000,
+  "pool": {
+    "max":5, 
+    "min":0,
+    "createTimeoutMillis": 30000,
+    "acquireTimeoutMillis": 60000,
+    "idleTimeoutMillis": 600000,
+    "createRetryIntervalMillis": 200,
+    "propagateCreateError": false
+  },
+  "connectionLimit": 5,
+  "connectTimeout": 10000,
+  "acquireTimeout": 60000,
+  "waitForConnections": true,
+  "queueLimit": 0
+}
