@@ -22,7 +22,7 @@ npm start               # Ejecuta la aplicación en modo de desarrollo
 A continuación se describen las variables de entorno a definir:
 
 ```bash
-"FUNCTIONS_WORKER_RUNTIME": "node",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "APP_serverAddress": "[DATABASE-URL]",
     "APP_DB_USER": "[USER-NAME]",
@@ -30,6 +30,7 @@ A continuación se describen las variables de entorno a definir:
     "APP_DB_NAME": "[DATABASE-NAME]",
     "emailFromNotify": "[EMAIL-ADDRESS-ORIGIN]",
     "emailToNotify": "[EMAIL-ADDRESS-TO]",
+    "enviarCorreo": "false",
     "emailProvider": "azure",
     "email_azure_tenantId": "[TENANT-ID]",
     "email_azure_applicationId": "[APP REGISTRATION]",

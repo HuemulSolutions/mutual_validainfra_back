@@ -34,10 +34,9 @@ export function db(databaseName: string): any {
   _mySqlServerConnection =knex({
     client: "mssql",
     connection: {
-      user: process.env.ADMIN_DB_USER,
-      password: process.env.ADMIN_DB_PASS,
-      // database: databaseName,
-      database: process.env.ADMIN_DB_NAME,
+      user: process.env.APP_DB_USER,
+      password: process.env.APP_DB_PASS,
+      database: process.env.APP_DB_NAME,
       server: dbSocketAddr[0],
       port: Number(dbSocketAddr[1]), // e.g. '5432'
       ...sqlConfig,
@@ -71,9 +70,10 @@ export function dbCentral(): any {
   _mySqlServerConnectionCentral =knex({
     client: "mssql",
     connection: {
-      user: process.env.APP_DB_USER,
-      password: process.env.APP_DB_PASS,
-      database: process.env.APP_DB_NAME,
+      user: process.env.ADMIN_DB_USER,
+      password: process.env.ADMIN_DB_PASS,
+      // database: databaseName,
+      database: process.env.ADMIN_DB_NAME,
       server: dbSocketAddr[0],
       port: Number(dbSocketAddr[1]), // e.g. '5432'
       ...sqlConfig,
